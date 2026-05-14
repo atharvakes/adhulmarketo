@@ -1,26 +1,51 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Navbar } from "@/components/site/Navbar";
+import { Hero } from "@/components/site/Hero";
+import { Stats } from "@/components/site/Stats";
+import { About } from "@/components/site/About";
+import { Products } from "@/components/site/Products";
+import { Services } from "@/components/site/Services";
+import { IndustrialGases } from "@/components/site/IndustrialGases";
+import { WhyUs } from "@/components/site/WhyUs";
+import { CtaBanner } from "@/components/site/CtaBanner";
+import { Footer } from "@/components/site/Footer";
 
 export const Route = createFileRoute("/")({
   component: Index,
+  head: () => ({
+    meta: [
+      {
+        title:
+          "Adhul Marketo (India) Pvt. Ltd. — Gas Safety Equipment & Specialty Gases Mumbai",
+      },
+      {
+        name: "description",
+        content:
+          "ISO 9001:2015 certified manufacturer & supplier of gas detectors, calibration gases, pressure regulators and industrial safety systems in Mumbai, India.",
+      },
+      { property: "og:title", content: "Adhul Marketo — Precision Gas Solutions" },
+      {
+        property: "og:description",
+        content:
+          "B2B specialists in gas safety equipment, calibration & specialty gases. Repair, AMC, rental and pan-India delivery.",
+      },
+    ],
+  }),
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
-
 function Index() {
-  return <PlaceholderIndex />;
+  return (
+    <main className="min-h-screen bg-background text-foreground">
+      <Navbar />
+      <Hero />
+      <Stats />
+      <About />
+      <Products />
+      <Services />
+      <IndustrialGases />
+      <WhyUs />
+      <CtaBanner />
+      <Footer />
+    </main>
+  );
 }
