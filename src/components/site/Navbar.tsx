@@ -1,12 +1,12 @@
+import { Phone, Menu, X, ArrowUpRight } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Phone, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const links = [
-  { href: "#home", label: "Home" },
   { href: "#products", label: "Products" },
   { href: "#services", label: "Services" },
   { href: "#about", label: "About" },
+  { href: "#trust", label: "Credentials" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -15,7 +15,7 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -23,46 +23,46 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all border-b ${
+      className={`fixed top-0 inset-x-0 z-50 transition-all ${
         scrolled
-          ? "bg-white/80 backdrop-blur-md border-border shadow-sm"
-          : "bg-white border-transparent"
+          ? "bg-surface/85 backdrop-blur-md border-b hairline"
+          : "bg-transparent"
       }`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <a href="#home" className="flex items-center gap-2">
-          <span className="font-bold text-navy text-lg tracking-tight">Adhul Marketo</span>
-          <span className="text-[10px] font-semibold uppercase tracking-wider bg-orange text-white px-2 py-0.5 rounded-full">
-            ISO 9001:2015
+        <a href="#home" className="flex items-baseline gap-2">
+          <span className="font-display text-2xl text-navy leading-none">Adhul Marketo</span>
+          <span className="hidden sm:inline text-[10px] font-medium uppercase tracking-[0.2em] text-text-muted">
+            India
           </span>
         </a>
 
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-9">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="relative text-sm font-medium text-text-dark hover:text-navy transition-colors group"
+              className="text-sm font-medium text-text-dark/80 hover:text-navy transition-colors"
             >
               {l.label}
-              <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-orange transition-all group-hover:w-full" />
             </a>
           ))}
         </nav>
 
-        <div className="hidden lg:flex items-center gap-4">
+        <div className="hidden lg:flex items-center gap-5">
           <a
             href="tel:+919152191121"
-            className="flex items-center gap-2 text-sm font-medium text-text-dark hover:text-cobalt"
+            className="flex items-center gap-2 text-sm font-medium text-text-muted hover:text-navy transition-colors"
           >
-            <Phone className="size-4 text-cobalt" />
-            +91 9152191121
+            <Phone className="size-3.5" />
+            +91 91521 91121
           </a>
           <a
             href="#contact"
-            className="bg-orange text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:scale-[1.03] active:scale-[0.97] transition-transform shadow-sm hover:shadow-md"
+            className="group inline-flex items-center gap-1.5 bg-navy text-white text-sm font-medium px-4 py-2 rounded-full hover:bg-cobalt transition-colors"
           >
-            Get a Quote
+            Request a quote
+            <ArrowUpRight className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
         </div>
 
@@ -81,7 +81,7 @@ export function Navbar() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="lg:hidden overflow-hidden bg-white border-t border-border"
+            className="lg:hidden overflow-hidden bg-surface border-t hairline"
           >
             <div className="px-4 py-4 flex flex-col gap-3">
               {links.map((l) => (
@@ -95,17 +95,11 @@ export function Navbar() {
                 </a>
               ))}
               <a
-                href="tel:+919152191121"
-                className="flex items-center gap-2 text-cobalt font-medium"
-              >
-                <Phone className="size-4" /> +91 9152191121
-              </a>
-              <a
                 href="#contact"
                 onClick={() => setOpen(false)}
-                className="bg-orange text-white text-center font-semibold px-5 py-3 rounded-full"
+                className="bg-navy text-white text-center font-medium px-5 py-3 rounded-full"
               >
-                Get a Quote
+                Request a quote
               </a>
             </div>
           </motion.div>
