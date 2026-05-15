@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FlaskConical, Gauge, GitBranch, Pipette, ArrowRight, type LucideIcon } from "lucide-react";
+import { ArrowUpRight, type LucideIcon, FlaskConical, Gauge, GitBranch, Pipette } from "lucide-react";
 import calibrationGas from "@/assets/products/calibration-gas.jpg";
 import pressureRegulators from "@/assets/products/pressure-regulators.jpg";
 import gasManifold from "@/assets/products/gas-manifold.jpg";
@@ -7,10 +7,10 @@ import gasLineSetup from "@/assets/products/gas-line-setup.jpg";
 
 type Product = {
   icon: LucideIcon;
-  bg: string;
-  fg: string;
+  index: string;
   name: string;
   desc: string;
+  spec: string;
   image: string;
   alt: string;
 };
@@ -18,37 +18,37 @@ type Product = {
 const products: Product[] = [
   {
     icon: FlaskConical,
-    bg: "bg-orange/10",
-    fg: "text-orange",
+    index: "01",
     name: "Calibration Gas Mixtures & Specialty Gases",
-    desc: "Precision gas standards for accurate instrument calibration",
+    desc: "Precision gas standards traceable to NIST/NPL for accurate instrument calibration across industrial and laboratory environments.",
+    spec: "Up to 99.9995% purity",
     image: calibrationGas,
     alt: "Calibration gas cylinders and specialty gas mixtures",
   },
   {
     icon: Gauge,
-    bg: "bg-cobalt/10",
-    fg: "text-cobalt",
+    index: "02",
     name: "Pressure Regulators",
-    desc: "High-performance regulators for controlled gas delivery",
+    desc: "Single and dual-stage regulators engineered for stable, contamination-free gas delivery across pressure ranges.",
+    spec: "Single & dual-stage",
     image: pressureRegulators,
     alt: "Industrial brass gas pressure regulator with gauges",
   },
   {
     icon: GitBranch,
-    bg: "bg-emerald-100",
-    fg: "text-emerald-600",
+    index: "03",
     name: "Gas Manifold Systems & Tapping Points",
-    desc: "Efficient multi-cylinder gas distribution systems",
+    desc: "Multi-cylinder manifold systems with auto-changeover for uninterrupted distribution to laboratories, hospitals and plants.",
+    spec: "Auto-changeover",
     image: gasManifold,
     alt: "Industrial gas manifold system with tapping points",
   },
   {
     icon: Pipette,
-    bg: "bg-cyan-100",
-    fg: "text-cyan-600",
+    index: "04",
     name: "Gas Line Setup",
-    desc: "End-to-end pipeline installation and configuration services",
+    desc: "End-to-end stainless steel pipeline design, installation, leak-testing and commissioning to project specification.",
+    spec: "Turnkey installation",
     image: gasLineSetup,
     alt: "Stainless steel industrial gas pipeline installation",
   },
@@ -56,68 +56,82 @@ const products: Product[] = [
 
 export function Products() {
   return (
-    <section id="products" className="py-20 lg:py-28 bg-surface">
+    <section id="products" className="py-24 lg:py-32 bg-bone border-y hairline">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5 }}
-          className="text-center max-w-2xl mx-auto"
-        >
-          <span className="text-orange text-xs font-bold uppercase tracking-[0.2em]">
-            What We Supply
-          </span>
-          <h2 className="mt-3 text-3xl sm:text-4xl lg:text-[40px] font-semibold text-navy leading-tight">
-            Our Complete Product Range
-          </h2>
-          <p className="mt-4 text-text-muted">
-            High-quality industrial and laboratory grade solutions for every need
-          </p>
-        </motion.div>
+        <div className="flex items-end justify-between gap-8 flex-wrap">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-2xl"
+          >
+            <span className="text-[11px] font-medium uppercase tracking-[0.25em] text-text-muted">
+              (02) — Catalogue
+            </span>
+            <h2 className="mt-6 font-display text-4xl sm:text-5xl lg:text-6xl text-navy leading-[1]">
+              Engineered for the
+              <br />
+              <em className="italic text-cobalt">work that matters.</em>
+            </h2>
+          </motion.div>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 text-sm font-medium text-navy hover:text-cobalt transition-colors"
+          >
+            Request full datasheet <ArrowUpRight className="size-4" />
+          </a>
+        </div>
 
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-8">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-14">
           {products.map((p, i) => (
             <motion.article
               key={p.name}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="group relative bg-white rounded-2xl overflow-hidden border border-border transition-all hover:-translate-y-1 hover:shadow-xl flex flex-col"
+              transition={{ duration: 0.6, delay: i * 0.08 }}
+              className="group"
             >
-              <span className="absolute inset-x-0 top-0 h-0.5 bg-orange scale-x-0 group-hover:scale-x-100 origin-left transition-transform z-10" />
-
-              <div className="relative aspect-[16/10] overflow-hidden bg-navy/5">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-md bg-white border hairline">
                 <img
                   src={p.image}
                   alt={p.alt}
                   loading="lazy"
                   width={1024}
                   height={768}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                <div
-                  className={`absolute top-4 left-4 flex items-center justify-center size-12 rounded-xl ${p.bg} backdrop-blur-sm ring-1 ring-white/40`}
-                >
-                  <p.icon className={`size-6 ${p.fg}`} />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute top-4 left-4 flex items-center gap-2">
+                  <span className="bg-white/90 backdrop-blur text-navy text-[10px] font-medium tracking-[0.18em] uppercase px-2.5 py-1 rounded-sm">
+                    {p.index} / {String(products.length).padStart(2, "0")}
+                  </span>
+                </div>
+                <div className="absolute bottom-4 right-4">
+                  <span className="bg-navy text-white text-[11px] font-medium px-3 py-1.5 rounded-full">
+                    {p.spec}
+                  </span>
                 </div>
               </div>
 
-              <div className="p-6 flex flex-col flex-1">
-                <h3 className="text-lg font-semibold text-navy leading-snug">
-                  {p.name}
-                </h3>
-                <p className="mt-2 text-sm text-text-muted leading-relaxed">
-                  {p.desc}
-                </p>
-                <a
-                  href="#contact"
-                  className="mt-5 inline-flex items-center gap-1 text-cobalt font-semibold text-sm hover:underline self-start"
-                >
-                  View Details <ArrowRight className="size-4" />
-                </a>
+              <div className="mt-6 flex items-start gap-4">
+                <p.icon className="size-5 text-cobalt mt-1 shrink-0" />
+                <div className="flex-1">
+                  <h3 className="font-display text-2xl lg:text-[28px] text-navy leading-tight">
+                    {p.name}
+                  </h3>
+                  <p className="mt-3 text-sm text-text-muted leading-relaxed max-w-md">
+                    {p.desc}
+                  </p>
+                  <a
+                    href="#contact"
+                    className="mt-5 inline-flex items-center gap-1.5 text-navy text-sm font-medium border-b border-navy/30 pb-0.5 hover:border-cobalt hover:text-cobalt transition-colors"
+                  >
+                    Enquire about this product
+                    <ArrowUpRight className="size-3.5" />
+                  </a>
+                </div>
               </div>
             </motion.article>
           ))}

@@ -1,92 +1,82 @@
-import { Award, Linkedin, MessageCircle, Phone, MapPin, Factory, ArrowRight, ChevronRight } from "lucide-react";
+import { Linkedin, MessageCircle, ArrowUpRight } from "lucide-react";
 
-const links = ["Home", "Products", "Services", "About", "Contact"];
+const cols = [
+  {
+    h: "Catalogue",
+    items: ["Calibration Gases", "Pressure Regulators", "Manifold Systems", "Gas Line Setup"],
+  },
+  {
+    h: "Services",
+    items: ["Detector Repair", "AMC", "Calibration", "Rental"],
+  },
+  {
+    h: "Company",
+    items: ["About", "Credentials", "Contact", "Careers"],
+  },
+];
 
 export function Footer() {
   return (
     <footer className="bg-navy text-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          <div>
-            <div className="text-xl font-bold">Adhul Marketo (India) Pvt. Ltd.</div>
-            <p className="mt-3 text-sm text-gray-400">
-              An ISO 9001:2015 Certified Company
-            </p>
-            <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs">
-              <Award className="size-4 text-orange" />
-              ISO 9001:2015
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+          <div className="lg:col-span-5">
+            <div className="font-display text-4xl lg:text-5xl leading-[1]">
+              Adhul Marketo
+              <br />
+              <em className="italic text-cobalt opacity-90">India Pvt. Ltd.</em>
             </div>
-            <div className="mt-6 flex gap-3">
+            <p className="mt-6 text-sm text-white/60 max-w-sm leading-relaxed">
+              An ISO 9001:2015 certified B2B house engineering gas safety solutions for
+              India's most demanding operations.
+            </p>
+            <div className="mt-8 flex gap-3">
               <a
                 href="#"
                 aria-label="LinkedIn"
-                className="size-10 rounded-full border border-white/15 flex items-center justify-center hover:border-orange hover:text-orange hover:shadow-[0_0_20px_rgba(255,107,43,0.4)] transition-all"
+                className="size-10 rounded-full border border-white/15 flex items-center justify-center hover:bg-white hover:text-navy transition-colors"
               >
                 <Linkedin className="size-4" />
               </a>
               <a
                 href="https://wa.me/919152191121"
                 aria-label="WhatsApp"
-                className="size-10 rounded-full border border-white/15 flex items-center justify-center hover:border-orange hover:text-orange hover:shadow-[0_0_20px_rgba(255,107,43,0.4)] transition-all"
+                className="size-10 rounded-full border border-white/15 flex items-center justify-center hover:bg-white hover:text-navy transition-colors"
               >
                 <MessageCircle className="size-4" />
               </a>
             </div>
           </div>
 
-          <div>
-            <h4 className="text-orange font-bold uppercase text-xs tracking-[0.2em]">
-              Quick Links
-            </h4>
-            <ul className="mt-4 space-y-2.5">
-              {links.map((l) => (
-                <li key={l}>
-                  <a
-                    href={`#${l.toLowerCase()}`}
-                    className="group inline-flex items-center gap-1.5 text-sm text-white/85 hover:text-orange transition-colors"
-                  >
-                    <ChevronRight className="size-3 text-orange opacity-70" />
-                    {l}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-orange font-bold uppercase text-xs tracking-[0.2em]">
-              Contact Us
-            </h4>
-            <ul className="mt-4 space-y-3 text-sm text-white/85">
-              <li className="flex items-start gap-3">
-                <Phone className="size-4 text-orange mt-0.5 shrink-0" />
-                <a href="tel:+919152191121" className="hover:text-orange">
-                  +91 9152191121
-                </a>
-              </li>
-              <li className="flex items-start gap-3">
-                <MapPin className="size-4 text-orange mt-0.5 shrink-0" />
-                Mumbai, Maharashtra, India
-              </li>
-              <li className="flex items-start gap-3">
-                <Factory className="size-4 text-orange mt-0.5 shrink-0" />
-                Manufacturer · Supplier · Service Provider
-              </li>
-            </ul>
-            <a
-              href="#contact"
-              className="mt-6 inline-flex items-center gap-2 border border-orange text-orange font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-orange hover:text-white transition-colors"
-            >
-              Get a Quote <ArrowRight className="size-4" />
-            </a>
+          <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-10">
+            {cols.map((c) => (
+              <div key={c.h}>
+                <h4 className="text-[10px] font-medium uppercase tracking-[0.25em] text-white/50">
+                  {c.h}
+                </h4>
+                <ul className="mt-5 space-y-3">
+                  {c.items.map((it) => (
+                    <li key={it}>
+                      <a
+                        href="#contact"
+                        className="text-sm text-white/85 hover:text-cobalt transition-colors inline-flex items-center gap-1.5 group"
+                      >
+                        {it}
+                        <ArrowUpRight className="size-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
       <div className="border-t border-white/10">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-white/60">
-          <p>© 2024 Adhul Marketo (India) Pvt. Ltd. All rights reserved.</p>
-          <p>Designed with ❤️ in Mumbai</p>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/50">
+          <p>© {new Date().getFullYear()} Adhul Marketo (India) Pvt. Ltd.</p>
+          <p className="uppercase tracking-[0.2em]">Mumbai · India</p>
         </div>
       </div>
     </footer>

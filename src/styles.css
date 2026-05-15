@@ -6,6 +6,7 @@
 
 @theme inline {
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Instrument Serif', 'Cormorant Garamond', Georgia, serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -36,21 +37,25 @@
   --color-cobalt: var(--cobalt);
   --color-orange: var(--orange);
   --color-surface: var(--surface);
+  --color-bone: var(--bone);
   --color-text-dark: var(--text-dark);
   --color-text-muted: var(--text-muted);
+  --color-hairline: var(--hairline);
 }
 
 :root {
-  --radius: 0.75rem;
+  --radius: 0.5rem;
 
-  /* Brand */
-  --navy: oklch(0.225 0.075 264);          /* #0A1F44 */
+  /* Refined editorial palette — warm off-white, deep navy ink, restrained cobalt */
+  --navy: oklch(0.22 0.06 264);            /* #0E1E3F deep ink */
   --navy-foreground: oklch(1 0 0);
-  --cobalt: oklch(0.55 0.24 265);          /* #1E5EFF */
-  --orange: oklch(0.7 0.2 41);             /* #FF6B2B */
-  --surface: oklch(0.97 0.005 250);        /* #F4F6FA */
-  --text-dark: oklch(0.18 0.02 260);       /* #111827 */
-  --text-muted: oklch(0.55 0.02 260);      /* #6B7280 */
+  --cobalt: oklch(0.48 0.18 258);          /* #2A4FD8 — used sparingly */
+  --orange: oklch(0.68 0.18 45);           /* legacy accent — minimal use */
+  --surface: oklch(0.985 0.005 85);        /* #FBF9F4 warm bone */
+  --bone: oklch(0.97 0.008 80);            /* slightly deeper bone */
+  --text-dark: oklch(0.22 0.04 260);
+  --text-muted: oklch(0.5 0.02 260);
+  --hairline: oklch(0.88 0.01 260);
 
   --background: oklch(1 0 0);
   --foreground: var(--text-dark);
@@ -64,12 +69,12 @@
   --secondary-foreground: var(--navy);
   --muted: var(--surface);
   --muted-foreground: var(--text-muted);
-  --accent: var(--orange);
+  --accent: var(--cobalt);
   --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.92 0.01 255);
-  --input: oklch(0.92 0.01 255);
+  --border: var(--hairline);
+  --input: var(--hairline);
   --ring: var(--cobalt);
 }
 
@@ -77,32 +82,54 @@
   * { border-color: var(--color-border); }
   html { scroll-behavior: smooth; }
   body {
-    background-color: var(--color-background);
+    background-color: var(--color-surface);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
+  .font-display { font-family: var(--font-display); font-weight: 400; letter-spacing: -0.02em; }
 }
 
 @layer utilities {
   .text-gradient-brand {
-    background-image: linear-gradient(90deg, var(--cobalt), var(--orange));
+    background-image: linear-gradient(90deg, var(--navy), var(--cobalt));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
-  .grid-drift {
-    animation: gridDrift 30s linear infinite;
-  }
+  .hairline { border-color: var(--hairline); }
+  .grid-drift { animation: gridDrift 30s linear infinite; }
   @keyframes gridDrift {
     from { background-position: 0 0; }
     to { background-position: 60px 60px; }
   }
-  .blink-dot {
-    animation: blink 1.6s ease-in-out infinite;
-  }
+  .blink-dot { animation: blink 1.6s ease-in-out infinite; }
   @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.35; }
   }
+  .marquee {
+    animation: marquee 38s linear infinite;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .float-slow { animation: float 8s ease-in-out infinite; }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  .ring-pulse { animation: ringPulse 4s ease-out infinite; }
+  @keyframes ringPulse {
+    0% { transform: scale(0.6); opacity: 0.7; }
+    100% { transform: scale(1.6); opacity: 0; }
+  }
+  .orbit { animation: orbit 22s linear infinite; transform-origin: center; }
+  @keyframes orbit {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .orbit-rev { animation: orbit 28s linear infinite reverse; transform-origin: center; }
 }
