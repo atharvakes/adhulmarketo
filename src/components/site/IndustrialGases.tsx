@@ -24,7 +24,7 @@ export function IndustrialGases() {
             className="lg:col-span-5"
           >
             <span className="text-[11px] font-medium uppercase tracking-[0.25em] text-white/60">
-              (04) — Industrial Gases
+              (04) Industrial Gases
             </span>
             <h3 className="mt-6 font-display text-3xl sm:text-4xl lg:text-5xl leading-[1]">
               And of course,

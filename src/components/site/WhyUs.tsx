@@ -35,7 +35,7 @@ export function WhyUs() {
           className="max-w-3xl"
         >
           <span className="text-[11px] font-medium uppercase tracking-[0.25em] text-text-muted">
-            (05) — Why Adhul
+            (05) Why Adhul
           </span>
           <h2 className="mt-6 font-display text-4xl sm:text-5xl lg:text-6xl text-navy leading-[1]">
             A standard of work

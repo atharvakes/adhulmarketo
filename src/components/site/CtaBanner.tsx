@@ -23,7 +23,7 @@ export function CtaBanner() {
         className="relative mx-auto max-w-5xl px-4 sm:px-6 text-center"
       >
         <span className="text-[11px] font-medium uppercase tracking-[0.25em] text-text-muted">
-          (06) — Get in touch
+          (06) Get in touch
         </span>
         <h2 className="mt-6 font-display text-5xl sm:text-6xl lg:text-7xl text-navy leading-[0.95]">
           Tell us what you
