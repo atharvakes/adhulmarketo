@@ -22,7 +22,7 @@ export function About() {
             className="lg:col-span-5 lg:sticky lg:top-28"
           >
             <span className="text-[11px] font-medium uppercase tracking-[0.25em] text-text-muted">
-              (01) — About
+              (01) About
             </span>
             <h2 className="mt-6 font-display text-4xl sm:text-5xl lg:text-6xl text-navy leading-[1] ">
               Bridging suppliers

@@ -156,11 +156,9 @@ export function Hero() {
               transition={{ duration: 0.7, delay: 0.05 }}
               className="mt-6 font-display text-[44px] sm:text-6xl lg:text-[88px] leading-[0.95] text-navy"
             >
-              Precision gas
+              Adhul Marketo
               <br />
-              solutions, engineered for
-              <br />
-              <em className="italic text-cobalt">a safer industry.</em>
+              <em className="italic text-cobalt">Pvt Ltd.</em>
             </motion.h1>
 
             <motion.p
