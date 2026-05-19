@@ -179,6 +179,60 @@ export function Products() {
             </motion.article>
           ))}
         </div>
+
+        <div className="mt-24 lg:mt-32 pt-16 border-t hairline">
+          <div className="flex items-end justify-between gap-8 flex-wrap">
+            <div className="max-w-xl">
+              <span className="text-[11px] font-medium uppercase tracking-[0.25em] text-text-muted">
+                Coming soon
+              </span>
+              <h3 className="mt-5 font-display text-3xl sm:text-4xl text-navy leading-[1.05]">
+                Upcoming <em className="italic text-cobalt">products.</em>
+              </h3>
+              <p className="mt-4 text-text-muted text-sm max-w-md">
+                A new line of ripening chambers, engineered for India's cold-chain
+                and produce distribution. Available for pre-order shortly.
+              </p>
+            </div>
+            <span className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-cobalt">
+              <span className="size-1.5 rounded-full bg-cobalt animate-pulse" />
+              In development
+            </span>
+          </div>
+
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {upcoming.map((u, i) => (
+              <motion.div
+                key={u.name}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="group relative border hairline rounded-md overflow-hidden bg-white"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img
+                    src={u.image}
+                    alt={u.name}
+                    loading="lazy"
+                    width={1024}
+                    height={768}
+                    className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
+                  />
+                  <div className="absolute top-3 left-3">
+                    <span className="bg-navy text-white text-[10px] font-medium tracking-[0.18em] uppercase px-2.5 py-1 rounded-sm">
+                      Upcoming
+                    </span>
+                  </div>
+                </div>
+                <div className="p-5">
+                  <h4 className="font-display text-lg text-navy leading-tight">{u.name}</h4>
+                  <p className="mt-1.5 text-xs text-text-muted leading-relaxed">{u.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
