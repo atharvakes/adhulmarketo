@@ -1,56 +1,87 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, type LucideIcon, FlaskConical, Gauge, GitBranch, Pipette } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import calibrationGas from "@/assets/products/calibration-gas.jpg";
 import pressureRegulators from "@/assets/products/pressure-regulators.jpg";
 import gasManifold from "@/assets/products/gas-manifold.jpg";
-import gasLineSetup from "@/assets/products/gas-line-setup.jpg";
+import highPurity from "@/assets/products/high-purity-gases.jpg";
+import ripening from "@/assets/products/ripening-chamber.jpg";
+import monel from "@/assets/products/monel-regulator.jpg";
+import sampling from "@/assets/products/gas-sampling-bomb.jpg";
+import controlPanel from "@/assets/products/control-panel.jpg";
 
 type Product = {
-  icon: LucideIcon;
   index: string;
   name: string;
   desc: string;
-  spec: string;
+  items: string[];
   image: string;
   alt: string;
 };
 
 const products: Product[] = [
   {
-    icon: FlaskConical,
     index: "01",
-    name: "Calibration Gas Mixtures & Specialty Gases",
-    desc: "Precision gas standards traceable to NIST/NPL for accurate instrument calibration across industrial and laboratory environments.",
-    spec: "Up to 99.9995% purity",
-    image: calibrationGas,
-    alt: "Calibration gas cylinders and specialty gas mixtures",
-  },
-  {
-    icon: Gauge,
-    index: "02",
-    name: "Pressure Regulators",
-    desc: "Single and dual-stage regulators engineered for stable, contamination-free gas delivery across pressure ranges.",
-    spec: "Single & dual-stage",
+    name: "Gas Regulators",
+    desc: "Precision regulators for calibration gases, portable testing and field calibration of detection equipment.",
+    items: ["Calibration Gas Regulator C-10", "Phosphine Calibration Mixtures", "Portable Calibration Mixtures"],
     image: pressureRegulators,
-    alt: "Industrial brass gas pressure regulator with gauges",
+    alt: "Calibration gas regulator with pressure gauges",
   },
   {
-    icon: GitBranch,
+    index: "02",
+    name: "Industrial Gases",
+    desc: "High purity gases and custom liquid mixtures supplied in cylinders, ready for laboratory and plant use.",
+    items: ["High Purity Gases", "Gas & Liquid Mixtures", "Hydrogen Chloride (HCL)"],
+    image: highPurity,
+    alt: "High purity industrial gas cylinders",
+  },
+  {
     index: "03",
-    name: "Gas Manifold Systems & Tapping Points",
-    desc: "Multi-cylinder manifold systems with auto-changeover for uninterrupted distribution to laboratories, hospitals and plants.",
-    spec: "Auto-changeover",
-    image: gasManifold,
-    alt: "Industrial gas manifold system with tapping points",
+    name: "Gas Mixtures",
+    desc: "Certified calibration gas mixtures and analyser standards prepared to your specification with full traceability.",
+    items: ["Calibration Gas Mixtures", "Portable Hydrogen Purity Analyzer", "Custom Multi-component Blends"],
+    image: calibrationGas,
+    alt: "Specialty calibration gas mixtures",
   },
   {
-    icon: Pipette,
     index: "04",
-    name: "Gas Line Setup",
-    desc: "End-to-end stainless steel pipeline design, installation, leak-testing and commissioning to project specification.",
-    spec: "Turnkey installation",
-    image: gasLineSetup,
-    alt: "Stainless steel industrial gas pipeline installation",
+    name: "Ripening Chambers",
+    desc: "Ethylene-based ripening chambers engineered for uniform colour and shelf life across mango and banana cargo.",
+    items: ["Ethylene Ripening Chamber", "Mango Ripening Chamber", "Banana Ripening Chamber"],
+    image: ripening,
+    alt: "Industrial fruit ripening chamber interior",
+  },
+  {
+    index: "05",
+    name: "Industrial Regulators",
+    desc: "Heavy-duty Monel and high-pressure regulators built for corrosive service and demanding industrial duty cycles.",
+    items: ["Single Stage Monel for HCL / CL", "High Pressure Piston Regulator", "Corrosive Service Regulators"],
+    image: monel,
+    alt: "Monel industrial gas regulator",
+  },
+  {
+    index: "06",
+    name: "Gas Sampling Systems",
+    desc: "Stainless steel sample bombs and liquefied gas sampling systems for accurate, contamination-free sampling.",
+    items: ["Gas Sampling System", "Gas Sample Bombs", "Liquefied Gas Sampling"],
+    image: sampling,
+    alt: "Stainless steel gas sampling bomb",
+  },
+  {
+    index: "07",
+    name: "Gas Manifolds",
+    desc: "Two-cylinder and high-pressure manifold systems delivering continuous, regulated gas supply across the plant.",
+    items: ["Two Cylinder Gas Manifolds", "High Pressure Manifold Systems", "Tapping Point Assemblies"],
+    image: gasManifold,
+    alt: "Industrial gas manifold system",
+  },
+  {
+    index: "08",
+    name: "Control Panels",
+    desc: "Auto changeover gas panels that switch banks seamlessly so critical processes never lose supply.",
+    items: ["Auto Changeover Panels", "Wall-mount Control Panels", "Custom Engineered Panels"],
+    image: controlPanel,
+    alt: "Auto changeover gas control panel",
   },
 ];
 
@@ -70,27 +101,30 @@ export function Products() {
               (02) Catalogue
             </span>
             <h2 className="mt-6 font-display text-4xl sm:text-5xl lg:text-6xl text-navy leading-[1]">
-              Engineered for the
+              Built for the
               <br />
               <em className="italic text-cobalt">work that matters.</em>
             </h2>
+            <p className="mt-6 text-text-muted max-w-lg">
+              A complete range of gas safety and supply equipment, manufactured and serviced in-house.
+            </p>
           </motion.div>
           <a
             href="#contact"
             className="inline-flex items-center gap-2 text-sm font-medium text-navy hover:text-cobalt transition-colors"
           >
-            Request full datasheet <ArrowUpRight className="size-4" />
+            Request full catalogue <ArrowUpRight className="size-4" />
           </a>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-14">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14">
           {products.map((p, i) => (
             <motion.article
               key={p.name}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 0.6, delay: i * 0.08 }}
+              transition={{ duration: 0.5, delay: (i % 3) * 0.08 }}
               className="group"
             >
               <div className="relative aspect-[4/3] overflow-hidden rounded-md bg-white border hairline">
@@ -102,36 +136,35 @@ export function Products() {
                   height={768}
                   className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute top-4 left-4 flex items-center gap-2">
+                <div className="absolute top-3 left-3">
                   <span className="bg-white/90 backdrop-blur text-navy text-[10px] font-medium tracking-[0.18em] uppercase px-2.5 py-1 rounded-sm">
                     {p.index} / {String(products.length).padStart(2, "0")}
                   </span>
                 </div>
-                <div className="absolute bottom-4 right-4">
-                  <span className="bg-navy text-white text-[11px] font-medium px-3 py-1.5 rounded-full">
-                    {p.spec}
-                  </span>
-                </div>
               </div>
 
-              <div className="mt-6 flex items-start gap-4">
-                <p.icon className="size-5 text-cobalt mt-1 shrink-0" />
-                <div className="flex-1">
-                  <h3 className="font-display text-2xl lg:text-[28px] text-navy leading-tight">
-                    {p.name}
-                  </h3>
-                  <p className="mt-3 text-sm text-text-muted leading-relaxed max-w-md">
-                    {p.desc}
-                  </p>
-                  <a
-                    href="#contact"
-                    className="mt-5 inline-flex items-center gap-1.5 text-navy text-sm font-medium border-b border-navy/30 pb-0.5 hover:border-cobalt hover:text-cobalt transition-colors"
-                  >
-                    Enquire about this product
-                    <ArrowUpRight className="size-3.5" />
-                  </a>
-                </div>
+              <div className="mt-5">
+                <h3 className="font-display text-2xl text-navy leading-tight">
+                  {p.name}
+                </h3>
+                <p className="mt-2 text-sm text-text-muted leading-relaxed">
+                  {p.desc}
+                </p>
+                <ul className="mt-4 space-y-1.5">
+                  {p.items.map((it) => (
+                    <li key={it} className="text-[13px] text-text-dark/80 flex items-start gap-2">
+                      <span className="text-cobalt mt-1.5 size-1 rounded-full bg-cobalt shrink-0" />
+                      {it}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href="#contact"
+                  className="mt-5 inline-flex items-center gap-1.5 text-navy text-sm font-medium border-b border-navy/30 pb-0.5 hover:border-cobalt hover:text-cobalt transition-colors"
+                >
+                  Enquire
+                  <ArrowUpRight className="size-3.5" />
+                </a>
               </div>
             </motion.article>
           ))}
