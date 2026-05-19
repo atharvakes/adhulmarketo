@@ -45,14 +45,6 @@ const products: Product[] = [
   },
   {
     index: "04",
-    name: "Ripening Chambers",
-    desc: "Ethylene-based ripening chambers engineered for uniform colour and shelf life across mango and banana cargo.",
-    items: ["Ethylene Ripening Chamber", "Mango Ripening Chamber", "Banana Ripening Chamber"],
-    image: ripening,
-    alt: "Industrial fruit ripening chamber interior",
-  },
-  {
-    index: "05",
     name: "Industrial Regulators",
     desc: "Heavy-duty Monel and high-pressure regulators built for corrosive service and demanding industrial duty cycles.",
     items: ["Single Stage Monel for HCL / CL", "High Pressure Piston Regulator", "Corrosive Service Regulators"],
@@ -60,7 +52,7 @@ const products: Product[] = [
     alt: "Monel industrial gas regulator",
   },
   {
-    index: "06",
+    index: "05",
     name: "Gas Sampling Systems",
     desc: "Stainless steel sample bombs and liquefied gas sampling systems for accurate, contamination-free sampling.",
     items: ["Gas Sampling System", "Gas Sample Bombs", "Liquefied Gas Sampling"],
@@ -68,7 +60,7 @@ const products: Product[] = [
     alt: "Stainless steel gas sampling bomb",
   },
   {
-    index: "07",
+    index: "06",
     name: "Gas Manifolds",
     desc: "Two-cylinder and high-pressure manifold systems delivering continuous, regulated gas supply across the plant.",
     items: ["Two Cylinder Gas Manifolds", "High Pressure Manifold Systems", "Tapping Point Assemblies"],
@@ -76,12 +68,30 @@ const products: Product[] = [
     alt: "Industrial gas manifold system",
   },
   {
-    index: "08",
+    index: "07",
     name: "Control Panels",
     desc: "Auto changeover gas panels that switch banks seamlessly so critical processes never lose supply.",
     items: ["Auto Changeover Panels", "Wall-mount Control Panels", "Custom Engineered Panels"],
     image: controlPanel,
     alt: "Auto changeover gas control panel",
+  },
+];
+
+const upcoming = [
+  {
+    name: "Ethylene Ripening Chamber",
+    desc: "Precision ethylene dosing for uniform colour development.",
+    image: ripening,
+  },
+  {
+    name: "Mango Ripening Chamber",
+    desc: "Temperature and humidity controlled chambers for mango cargo.",
+    image: ripening,
+  },
+  {
+    name: "Banana Ripening Chamber",
+    desc: "Multi-rack chambers calibrated for banana ripening cycles.",
+    image: ripening,
   },
 ];
 
@@ -168,6 +178,60 @@ export function Products() {
               </div>
             </motion.article>
           ))}
+        </div>
+
+        <div className="mt-24 lg:mt-32 pt-16 border-t hairline">
+          <div className="flex items-end justify-between gap-8 flex-wrap">
+            <div className="max-w-xl">
+              <span className="text-[11px] font-medium uppercase tracking-[0.25em] text-text-muted">
+                Coming soon
+              </span>
+              <h3 className="mt-5 font-display text-3xl sm:text-4xl text-navy leading-[1.05]">
+                Upcoming <em className="italic text-cobalt">products.</em>
+              </h3>
+              <p className="mt-4 text-text-muted text-sm max-w-md">
+                A new line of ripening chambers, engineered for India's cold-chain
+                and produce distribution. Available for pre-order shortly.
+              </p>
+            </div>
+            <span className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-cobalt">
+              <span className="size-1.5 rounded-full bg-cobalt animate-pulse" />
+              In development
+            </span>
+          </div>
+
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {upcoming.map((u, i) => (
+              <motion.div
+                key={u.name}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="group relative border hairline rounded-md overflow-hidden bg-white"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img
+                    src={u.image}
+                    alt={u.name}
+                    loading="lazy"
+                    width={1024}
+                    height={768}
+                    className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
+                  />
+                  <div className="absolute top-3 left-3">
+                    <span className="bg-navy text-white text-[10px] font-medium tracking-[0.18em] uppercase px-2.5 py-1 rounded-sm">
+                      Upcoming
+                    </span>
+                  </div>
+                </div>
+                <div className="p-5">
+                  <h4 className="font-display text-lg text-navy leading-tight">{u.name}</h4>
+                  <p className="mt-1.5 text-xs text-text-muted leading-relaxed">{u.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
