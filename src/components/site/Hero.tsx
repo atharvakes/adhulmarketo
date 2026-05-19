@@ -167,9 +167,9 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.25 }}
               className="mt-7 max-w-xl text-base lg:text-lg text-text-muted leading-relaxed"
             >
-              Adhul Marketo manufactures, supplies and services certified gas safety
-              equipment, calibration mixtures and specialty gases for India's most
-              demanding laboratories, plants and field operations.
+              Trusted partner for calibration gas mixtures, safety equipment and
+              specialty gases — supplying India's laboratories, plants, refineries
+              and power stations with the precision they run on.
             </motion.p>
 
             <motion.div

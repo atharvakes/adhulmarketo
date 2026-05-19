@@ -1,14 +1,18 @@
 import { motion } from "framer-motion";
 
 const clients = [
-  { name: "Indian Oil", sub: "Corporation" },
-  { name: "HPCL", sub: "Hindustan Petroleum" },
-  { name: "BPCL", sub: "Bharat Petroleum" },
-  { name: "Tata Power", sub: "Energy" },
-  { name: "Reliance", sub: "Industries" },
-  { name: "L&T", sub: "Larsen & Toubro" },
-  { name: "ONGC", sub: "Oil & Natural Gas" },
-  { name: "GAIL", sub: "India Limited" },
+  { name: "Indian Oil", domain: "iocl.com" },
+  { name: "HPCL", domain: "hindustanpetroleum.com" },
+  { name: "BPCL", domain: "bharatpetroleum.in" },
+  { name: "Tata Power", domain: "tatapower.com" },
+  { name: "Reliance", domain: "ril.com" },
+  { name: "L&T", domain: "larsentoubro.com" },
+  { name: "ONGC", domain: "ongcindia.com" },
+  { name: "GAIL", domain: "gailonline.com" },
+  { name: "NTPC", domain: "ntpc.co.in" },
+  { name: "BARC", domain: "barc.gov.in" },
+  { name: "IOC R&D", domain: "iocl.com" },
+  { name: "Thermax", domain: "thermaxglobal.com" },
 ];
 
 export function Clients() {
@@ -40,25 +44,40 @@ export function Clients() {
             className="lg:col-span-6 lg:col-start-7 text-text-muted text-base lg:text-lg max-w-xl"
           >
             For more than two decades, our equipment has supported safety
-            and supply for refineries, power plants and EPC majors across India.
+            and supply at refineries, power plants, research labs and EPC majors
+            across India.
           </motion.p>
         </div>
 
-        <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 border hairline rounded-md overflow-hidden bg-white">
+        <div className="mt-16 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 border hairline rounded-md overflow-hidden bg-white">
           {clients.map((c, i) => (
             <motion.div
-              key={c.name}
+              key={c.name + i}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: (i % 4) * 0.06 }}
-              className="group relative aspect-[3/2] flex flex-col items-center justify-center text-center border-r border-b hairline last:border-r-0 [&:nth-child(4n)]:border-r-0 [&:nth-last-child(-n+4)]:border-b-0 px-4 hover:bg-bone transition-colors"
+              transition={{ duration: 0.5, delay: (i % 4) * 0.05 }}
+              className="group relative aspect-[3/2] flex items-center justify-center border-r border-b hairline px-6 hover:bg-bone transition-colors"
             >
-              <span className="font-display text-2xl sm:text-3xl text-navy leading-none tracking-tight">
+              <img
+                src={`https://logo.clearbit.com/${c.domain}?size=200`}
+                alt={`${c.name} logo`}
+                loading="lazy"
+                width={200}
+                height={80}
+                className="max-h-12 max-w-[70%] object-contain grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                onError={(e) => {
+                  const img = e.currentTarget;
+                  img.style.display = "none";
+                  const fallback = img.nextElementSibling as HTMLElement | null;
+                  if (fallback) fallback.style.display = "block";
+                }}
+              />
+              <span
+                style={{ display: "none" }}
+                className="font-display text-2xl text-navy"
+              >
                 {c.name}
-              </span>
-              <span className="mt-2 text-[10px] uppercase tracking-[0.22em] text-text-muted">
-                {c.sub}
               </span>
             </motion.div>
           ))}

@@ -45,11 +45,11 @@ const products: Product[] = [
   },
   {
     index: "04",
-    name: "Ripening Chambers",
-    desc: "Ethylene-based ripening chambers engineered for uniform colour and shelf life across mango and banana cargo.",
-    items: ["Ethylene Ripening Chamber", "Mango Ripening Chamber", "Banana Ripening Chamber"],
-    image: ripening,
-    alt: "Industrial fruit ripening chamber interior",
+    name: "Industrial Regulators",
+    desc: "Heavy-duty Monel and high-pressure regulators built for corrosive service and demanding industrial duty cycles.",
+    items: ["Single Stage Monel for HCL / CL", "High Pressure Piston Regulator", "Corrosive Service Regulators"],
+    image: monel,
+    alt: "Monel industrial gas regulator",
   },
   {
     index: "05",
