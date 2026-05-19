@@ -53,14 +53,6 @@ const products: Product[] = [
   },
   {
     index: "05",
-    name: "Industrial Regulators",
-    desc: "Heavy-duty Monel and high-pressure regulators built for corrosive service and demanding industrial duty cycles.",
-    items: ["Single Stage Monel for HCL / CL", "High Pressure Piston Regulator", "Corrosive Service Regulators"],
-    image: monel,
-    alt: "Monel industrial gas regulator",
-  },
-  {
-    index: "06",
     name: "Gas Sampling Systems",
     desc: "Stainless steel sample bombs and liquefied gas sampling systems for accurate, contamination-free sampling.",
     items: ["Gas Sampling System", "Gas Sample Bombs", "Liquefied Gas Sampling"],
@@ -68,7 +60,7 @@ const products: Product[] = [
     alt: "Stainless steel gas sampling bomb",
   },
   {
-    index: "07",
+    index: "06",
     name: "Gas Manifolds",
     desc: "Two-cylinder and high-pressure manifold systems delivering continuous, regulated gas supply across the plant.",
     items: ["Two Cylinder Gas Manifolds", "High Pressure Manifold Systems", "Tapping Point Assemblies"],
@@ -76,12 +68,30 @@ const products: Product[] = [
     alt: "Industrial gas manifold system",
   },
   {
-    index: "08",
+    index: "07",
     name: "Control Panels",
     desc: "Auto changeover gas panels that switch banks seamlessly so critical processes never lose supply.",
     items: ["Auto Changeover Panels", "Wall-mount Control Panels", "Custom Engineered Panels"],
     image: controlPanel,
     alt: "Auto changeover gas control panel",
+  },
+];
+
+const upcoming = [
+  {
+    name: "Ethylene Ripening Chamber",
+    desc: "Precision ethylene dosing for uniform colour development.",
+    image: ripening,
+  },
+  {
+    name: "Mango Ripening Chamber",
+    desc: "Temperature and humidity controlled chambers for mango cargo.",
+    image: ripening,
+  },
+  {
+    name: "Banana Ripening Chamber",
+    desc: "Multi-rack chambers calibrated for banana ripening cycles.",
+    image: ripening,
   },
 ];
 
