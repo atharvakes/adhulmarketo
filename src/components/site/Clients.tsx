@@ -1,18 +1,20 @@
 import { motion } from "framer-motion";
+import reliance from "@/assets/clients/reliance.png";
+import gail from "@/assets/clients/gail.png";
+import ioc from "@/assets/clients/ioc.png";
+import hpcl from "@/assets/clients/hpcl.png";
+import bpcl from "@/assets/clients/bpcl.png";
+import lt from "@/assets/clients/lt.png";
+import ntpc from "@/assets/clients/ntpc.png";
 
 const clients = [
-  { name: "Indian Oil", domain: "iocl.com" },
-  { name: "HPCL", domain: "hindustanpetroleum.com" },
-  { name: "BPCL", domain: "bharatpetroleum.in" },
-  { name: "Tata Power", domain: "tatapower.com" },
-  { name: "Reliance", domain: "ril.com" },
-  { name: "L&T", domain: "larsentoubro.com" },
-  { name: "ONGC", domain: "ongcindia.com" },
-  { name: "GAIL", domain: "gailonline.com" },
-  { name: "NTPC", domain: "ntpc.co.in" },
-  { name: "BARC", domain: "barc.gov.in" },
-  { name: "IOC R&D", domain: "iocl.com" },
-  { name: "Thermax", domain: "thermaxglobal.com" },
+  { name: "Indian Oil", src: ioc },
+  { name: "HPCL", src: hpcl },
+  { name: "BPCL", src: bpcl },
+  { name: "Reliance Industries", src: reliance },
+  { name: "Larsen & Toubro", src: lt },
+  { name: "NTPC", src: ntpc },
+  { name: "GAIL", src: gail },
 ];
 
 export function Clients() {
@@ -48,45 +50,32 @@ export function Clients() {
             across India.
           </motion.p>
         </div>
+      </div>
 
-        <div className="mt-16 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 border hairline rounded-md overflow-hidden bg-white">
-          {clients.map((c, i) => (
-            <motion.div
+      <div className="mt-16 relative overflow-hidden">
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-surface to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-surface to-transparent z-10" />
+
+        <div className="flex marquee gap-16 sm:gap-24 whitespace-nowrap items-center">
+          {[...clients, ...clients].map((c, i) => (
+            <div
               key={c.name + i}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: (i % 4) * 0.05 }}
-              className="group relative aspect-[3/2] flex items-center justify-center border-r border-b hairline px-6 hover:bg-bone transition-colors"
+              className="shrink-0 flex items-center justify-center h-20 sm:h-24"
             >
               <img
-                src={`https://logo.clearbit.com/${c.domain}?size=200`}
+                src={c.src}
                 alt={`${c.name} logo`}
                 loading="lazy"
-                width={200}
-                height={80}
-                className="max-h-12 max-w-[70%] object-contain grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
-                onError={(e) => {
-                  const img = e.currentTarget;
-                  img.style.display = "none";
-                  const fallback = img.nextElementSibling as HTMLElement | null;
-                  if (fallback) fallback.style.display = "block";
-                }}
+                className="h-full w-auto max-w-[180px] object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
               />
-              <span
-                style={{ display: "none" }}
-                className="font-display text-2xl text-navy"
-              >
-                {c.name}
-              </span>
-            </motion.div>
+            </div>
           ))}
         </div>
-
-        <p className="mt-8 text-xs uppercase tracking-[0.22em] text-text-muted text-center">
-          Among 200+ enterprise clients · Pan-India delivery
-        </p>
       </div>
+
+      <p className="mt-12 text-xs uppercase tracking-[0.22em] text-text-muted text-center">
+        Among 200+ enterprise clients · Pan-India delivery
+      </p>
     </section>
   );
 }
