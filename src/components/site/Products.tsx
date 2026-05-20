@@ -8,6 +8,7 @@ import ripening from "@/assets/products/ripening-chamber.jpg";
 import monel from "@/assets/products/monel-regulator.jpg";
 import sampling from "@/assets/products/gas-sampling-bomb.jpg";
 import controlPanel from "@/assets/products/control-panel.jpg";
+import closedLoop from "@/assets/products/closed-loop-sampling.jpg";
 
 type Product = {
   index: string;
