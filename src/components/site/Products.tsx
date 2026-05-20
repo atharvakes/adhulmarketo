@@ -8,6 +8,7 @@ import ripening from "@/assets/products/ripening-chamber.jpg";
 import monel from "@/assets/products/monel-regulator.jpg";
 import sampling from "@/assets/products/gas-sampling-bomb.jpg";
 import controlPanel from "@/assets/products/control-panel.jpg";
+import closedLoop from "@/assets/products/closed-loop-sampling.jpg";
 
 type Product = {
   index: string;
@@ -74,6 +75,14 @@ const products: Product[] = [
     items: ["Auto Changeover Panels", "Wall-mount Control Panels", "Custom Engineered Panels"],
     image: controlPanel,
     alt: "Auto changeover gas control panel",
+  },
+  {
+    index: "08",
+    name: "Closed Loop Gas Sampling System",
+    desc: "Sealed, leak-tight sampling loops for accurate, emission-free collection of liquefied and high-purity gases.",
+    items: ["Closed Loop Sample Bombs", "Double Valve Sampling Cylinders", "Panel-mounted Sampling Skids"],
+    image: closedLoop,
+    alt: "Closed loop gas sampling system with stainless sample bomb",
   },
 ];
 
