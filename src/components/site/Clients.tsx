@@ -66,7 +66,7 @@ export function Clients() {
                 src={c.src}
                 alt={`${c.name} logo`}
                 loading="lazy"
-                className="h-full w-auto max-w-[180px] object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+                className="h-full w-auto max-w-[180px] object-contain opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-500"
               />
             </div>
           ))}
