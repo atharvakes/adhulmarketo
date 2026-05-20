@@ -76,6 +76,14 @@ const products: Product[] = [
     image: controlPanel,
     alt: "Auto changeover gas control panel",
   },
+  {
+    index: "08",
+    name: "Closed Loop Gas Sampling System",
+    desc: "Sealed, leak-tight sampling loops for accurate, emission-free collection of liquefied and high-purity gases.",
+    items: ["Closed Loop Sample Bombs", "Double Valve Sampling Cylinders", "Panel-mounted Sampling Skids"],
+    image: closedLoop,
+    alt: "Closed loop gas sampling system with stainless sample bomb",
+  },
 ];
 
 const upcoming = [
