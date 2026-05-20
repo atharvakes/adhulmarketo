@@ -43,7 +43,7 @@ function Index() {
       <Stats />
       <About />
       <Products />
-      <Services />
+      
       <IndustrialGases />
       <WhyUs />
       <Clients />
