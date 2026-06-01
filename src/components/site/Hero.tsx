@@ -3,7 +3,7 @@ import { ArrowUpRight, ShieldCheck } from "lucide-react";
 
 /**
  * Animated abstract gas-molecule / sensor visual.
- * Pure SVG — no images, no dependencies, GPU-friendly.
+ * Pure SVG , no images, no dependencies, GPU-friendly.
  */
 function MoleculeVisual() {
   return (
@@ -168,7 +168,7 @@ export function Hero() {
               className="mt-7 max-w-xl text-base lg:text-lg text-text-muted leading-relaxed"
             >
               Trusted partner for calibration gas mixtures, safety equipment and
-              specialty gases — supplying India's laboratories, plants, refineries
+              specialty gases , supplying India's laboratories, plants, refineries
               and power stations with the precision they run on.
             </motion.p>
 

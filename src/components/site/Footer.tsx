@@ -1,4 +1,4 @@
-import { Linkedin, MessageCircle, ArrowUpRight } from "lucide-react";
+import { Linkedin, MessageCircle, ArrowUpRight, Mail } from "lucide-react";
 
 const cols = [
   {
@@ -28,8 +28,22 @@ export function Footer() {
             </div>
             <p className="mt-6 text-sm text-white/60 max-w-sm leading-relaxed">
               An ISO 9001:2015 certified B2B house engineering gas safety solutions for
-              India's most demanding operations.
+              India&apos;s most demanding operations.
             </p>
+            <div className="mt-6 space-y-2 text-sm">
+              <a
+                href="mailto:info@adhul.com?subject=Enquiry%20from%20website"
+                className="flex items-center gap-2 text-white/85 hover:text-cobalt transition-colors"
+              >
+                <Mail className="size-3.5" /> info@adhul.com
+              </a>
+              <a
+                href="mailto:rfd@adhulmarketo.com?subject=Request%20for%20Quotation"
+                className="flex items-center gap-2 text-white/85 hover:text-cobalt transition-colors"
+              >
+                <Mail className="size-3.5" /> rfd@adhulmarketo.com
+              </a>
+            </div>
             <div className="mt-8 flex gap-3">
               <a
                 href="#"
@@ -40,6 +54,8 @@ export function Footer() {
               </a>
               <a
                 href="https://wa.me/919152191121"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="WhatsApp"
                 className="size-10 rounded-full border border-white/15 flex items-center justify-center hover:bg-white hover:text-navy transition-colors"
               >

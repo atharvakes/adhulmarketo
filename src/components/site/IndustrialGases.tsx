@@ -32,7 +32,7 @@ export function IndustrialGases() {
               <em className="italic text-cobalt">the gases themselves.</em>
             </h3>
             <p className="mt-5 text-white/70 text-sm max-w-md leading-relaxed">
-              Cylinder and bulk supply across India — sourced through audited partners
+              Cylinder and bulk supply across India , sourced through audited partners
               and delivered with full traceability.
             </p>
           </motion.div>
