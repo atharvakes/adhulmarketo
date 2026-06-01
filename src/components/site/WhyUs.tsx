@@ -14,7 +14,7 @@ const items = [
   {
     n: "03",
     title: "Engineer-led service",
-    desc: "Field engineers handle installation, commissioning and AMC — never resellers.",
+    desc: "Field engineers handle installation, commissioning and AMC , never resellers.",
   },
   {
     n: "04",
