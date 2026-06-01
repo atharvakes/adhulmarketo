@@ -1,4 +1,4 @@
-import { Linkedin, MessageCircle, ArrowUpRight } from "lucide-react";
+import { Linkedin, MessageCircle, ArrowUpRight, Mail } from "lucide-react";
 
 const cols = [
   {
