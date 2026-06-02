@@ -24,8 +24,8 @@ const products: Product[] = [
     name: "Gas Regulators",
     desc: "Precision regulators for calibration gases, portable testing and field calibration of detection equipment.",
     items: ["Calibration Gas Regulator C-10", "Phosphine Calibration Mixtures", "Portable Calibration Mixtures"],
-    image: pressureRegulators,
-    alt: "Calibration gas regulator with pressure gauges",
+    image: gasRegulatorReal.url,
+    alt: "Stainless steel gas regulator with dual pressure gauges",
   },
   {
     index: "02",
@@ -53,14 +53,6 @@ const products: Product[] = [
   },
   {
     index: "05",
-    name: "Gas Sampling Systems",
-    desc: "Stainless steel sample bombs and liquefied gas sampling systems for accurate, contamination-free sampling.",
-    items: ["Gas Sampling System", "Gas Sample Bombs", "Liquefied Gas Sampling"],
-    image: sampling,
-    alt: "Stainless steel gas sampling bomb",
-  },
-  {
-    index: "06",
     name: "Gas Manifolds",
     desc: "Two-cylinder and high-pressure manifold systems delivering continuous, regulated gas supply across the plant.",
     items: ["Two Cylinder Gas Manifolds", "High Pressure Manifold Systems", "Tapping Point Assemblies"],
@@ -68,7 +60,7 @@ const products: Product[] = [
     alt: "Industrial gas manifold system",
   },
   {
-    index: "07",
+    index: "06",
     name: "Control Panels",
     desc: "Auto changeover gas panels that switch banks seamlessly so critical processes never lose supply.",
     items: ["Auto Changeover Panels", "Wall-mount Control Panels", "Custom Engineered Panels"],
@@ -76,12 +68,12 @@ const products: Product[] = [
     alt: "Auto changeover gas control panel",
   },
   {
-    index: "08",
+    index: "07",
     name: "Closed Loop Gas Sampling System",
     desc: "Sealed, leak-tight sampling loops for accurate, emission-free collection of liquefied and high-purity gases.",
     items: ["Closed Loop Sample Bombs", "Double Valve Sampling Cylinders", "Panel-mounted Sampling Skids"],
-    image: closedLoop,
-    alt: "Closed loop gas sampling system with stainless sample bomb",
+    image: closedLoopReal.url,
+    alt: "Closed loop gas sampling system panel with sample bomb and gauges",
   },
 ];
 
