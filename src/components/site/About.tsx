@@ -25,9 +25,9 @@ export function About() {
               (01) About
             </span>
             <h2 className="mt-6 font-display text-4xl sm:text-5xl lg:text-6xl text-navy leading-[1] ">
-              Bridging suppliers
+              A B2B partner
               <br />
-              and operators with
+              built on
               <br />
               <em className="italic text-cobalt">measurable trust.</em>
             </h2>
@@ -47,10 +47,10 @@ export function About() {
             className="lg:col-span-7"
           >
             <p className="text-lg lg:text-xl text-text-dark leading-relaxed font-light">
-              Adhul Marketo (India) Pvt. Ltd. is a young, ISO-certified B2B house
-              specialising in industrial gas safety. We sit between manufacturers
-              and end users , calibrating, supplying and servicing the equipment that
-              keeps modern plants compliant.
+              Adhul Marketo India Pvt. Ltd. is an ISO-certified B2B house
+              specialising in industrial gas safety. We calibrate, supply and
+              service the equipment that keeps refineries, power plants and
+              laboratories compliant across the country.
             </p>
             <p className="mt-6 text-base text-text-muted leading-relaxed">
               Every relationship is governed by a single internal framework , ASTER ,
