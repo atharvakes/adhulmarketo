@@ -25,7 +25,7 @@ export function About() {
               (01) About
             </span>
             <h2 className="mt-6 font-display text-4xl sm:text-5xl lg:text-6xl text-navy leading-[1] ">
-              A B2B partner
+              A partner
               <br />
               built on
               <br />
