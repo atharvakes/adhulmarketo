@@ -1,14 +1,13 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import calibrationGas from "@/assets/products/calibration-gas.jpg";
-import pressureRegulators from "@/assets/products/pressure-regulators.jpg";
 import gasManifold from "@/assets/products/gas-manifold.jpg";
 import highPurity from "@/assets/products/high-purity-gases.jpg";
 import ripening from "@/assets/products/ripening-chamber.jpg";
 import monel from "@/assets/products/monel-regulator.jpg";
-import sampling from "@/assets/products/gas-sampling-bomb.jpg";
 import controlPanel from "@/assets/products/control-panel.jpg";
-import closedLoop from "@/assets/products/closed-loop-sampling.jpg";
+import gasRegulatorReal from "@/assets/products/gas-regulator-real.jpg.asset.json";
+import closedLoopReal from "@/assets/products/closed-loop-real.jpg.asset.json";
 
 type Product = {
   index: string;
