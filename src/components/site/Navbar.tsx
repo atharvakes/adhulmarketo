@@ -14,7 +14,7 @@ const links: NavLink[] = [
 ];
 
 const WHATSAPP_URL =
-  "https://api.whatsapp.com/send?phone=919152191121&text=Hi%20Adhul%20Marketo%2C%20I%27d%20like%20to%20request%20a%20quote.";
+  "https://wa.me/919152191121?text=Hi%20Adhul%20Marketo%2C%20I%27d%20like%20to%20request%20a%20quote.";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);

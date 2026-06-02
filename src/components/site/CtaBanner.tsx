@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, MessageCircle, Mail, Phone } from "lucide-react";
 
 const WHATSAPP_URL =
-  "https://api.whatsapp.com/send?phone=919152191121&text=Hi%20Adhul%20Marketo%2C%20I%27d%20like%20to%20request%20a%20quote.";
+  "https://wa.me/919152191121?text=Hi%20Adhul%20Marketo%2C%20I%27d%20like%20to%20request%20a%20quote.";
 const MAIL_INFO =
   "mailto:info@adhul.com?subject=Enquiry%20from%20website&body=Hi%20Adhul%20Marketo%20team%2C%0A%0AI%27d%20like%20to%20enquire%20about%3A%20";
 const MAIL_RFQ =

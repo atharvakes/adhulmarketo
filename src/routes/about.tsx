@@ -197,7 +197,7 @@ function AboutPage() {
                 icon={MessageCircle}
                 label="WhatsApp"
                 value="+91 91521 91121"
-                href="https://api.whatsapp.com/send?phone=919152191121&text=Hi%20Adhul%20Marketo%2C%20I%27d%20like%20to%20request%20a%20quote."
+                href="https://wa.me/919152191121?text=Hi%20Adhul%20Marketo%2C%20I%27d%20like%20to%20request%20a%20quote."
               />
               <ContactCard
                 icon={Phone}

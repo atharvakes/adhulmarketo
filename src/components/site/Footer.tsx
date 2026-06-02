@@ -53,7 +53,7 @@ export function Footer() {
                 <Linkedin className="size-4" />
               </a>
               <a
-                href="https://api.whatsapp.com/send?phone=919152191121"
+                href="https://wa.me/919152191121"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
