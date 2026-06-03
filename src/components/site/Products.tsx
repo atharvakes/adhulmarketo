@@ -130,13 +130,17 @@ export function Products() {
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14">
           {products.map((p, i) => (
-            <motion.article
+            <motion.a
               key={p.name}
+              href={whatsappEnquiryUrl(p.name)}
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.5, delay: (i % 3) * 0.08 }}
-              className="group"
+              className="group block"
+              aria-label={`Enquire about ${p.name} on WhatsApp`}
             >
               <div className="relative aspect-[4/3] overflow-hidden rounded-md bg-white border hairline">
                 <img
@@ -152,10 +156,16 @@ export function Products() {
                     {p.index} / {String(products.length).padStart(2, "0")}
                   </span>
                 </div>
+                <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="inline-flex items-center gap-1 bg-emerald-500 text-white text-[10px] font-semibold uppercase tracking-[0.12em] px-2.5 py-1 rounded-full shadow-md">
+                    <MessageCircle className="size-3" />
+                    Enquire
+                  </span>
+                </div>
               </div>
 
               <div className="mt-5">
-                <h3 className="font-display text-2xl text-navy leading-tight">
+                <h3 className="font-display text-2xl text-navy leading-tight group-hover:text-cobalt transition-colors">
                   {p.name}
                 </h3>
                 <p className="mt-2 text-sm text-text-muted leading-relaxed">
@@ -169,15 +179,13 @@ export function Products() {
                     </li>
                   ))}
                 </ul>
-                <a
-                  href="#contact"
-                  className="mt-5 inline-flex items-center gap-1.5 text-navy text-sm font-medium border-b border-navy/30 pb-0.5 hover:border-cobalt hover:text-cobalt transition-colors"
-                >
-                  Enquire
+                <span className="mt-5 inline-flex items-center gap-1.5 text-navy text-sm font-medium border-b border-navy/30 pb-0.5 group-hover:border-cobalt group-hover:text-cobalt transition-colors">
+                  <MessageCircle className="size-3.5" />
+                  Enquire on WhatsApp
                   <ArrowUpRight className="size-3.5" />
-                </a>
+                </span>
               </div>
-            </motion.article>
+            </motion.a>
           ))}
         </div>
 
