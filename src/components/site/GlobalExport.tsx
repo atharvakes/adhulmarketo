@@ -23,18 +23,18 @@ export function GlobalExport() {
   return (
     <section id="global" className="py-24 lg:py-28 bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="grid lg:grid-cols-12 gap-10 items-end">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-5"
+            className="lg:col-span-7"
           >
             <span className="text-[11px] font-medium uppercase tracking-[0.25em] text-text-muted">
               (08) Global Network
             </span>
-            <h2 className="mt-6 font-display text-4xl sm:text-5xl text-navy leading-[1.05]">
+            <h2 className="mt-6 font-display text-4xl sm:text-5xl lg:text-6xl text-navy leading-[1.05]">
               Global Export
               <br />
               <em className="italic text-cobalt">Distribution.</em>
@@ -42,13 +42,21 @@ export function GlobalExport() {
             <p className="mt-6 text-text-dark/80 text-base lg:text-lg font-medium">
               Mumbai and beyond. Delivering engineered mixtures globally.
             </p>
-            <p className="mt-5 text-text-muted text-base lg:text-base max-w-md">
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="lg:col-span-5"
+          >
+            <p className="text-text-muted text-base lg:text-base">
               We manufacture and load high-purity cylinder mixtures and technical
               gas safety systems directly from our custom in-house facility in
               Mumbai, serving world-class installations across key hubs.
             </p>
-
-            <div className="mt-8">
+            <div className="mt-6">
               <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-text-muted">
                 Active corridors delivered
               </p>
@@ -67,14 +75,15 @@ export function GlobalExport() {
               </div>
             </div>
           </motion.div>
+        </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8 }}
-            className="lg:col-span-7 relative rounded-2xl border border-white/5 bg-[#0a1024] overflow-hidden shadow-2xl"
-          >
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.8 }}
+          className="mt-12 relative rounded-2xl border border-white/5 bg-[#0a1024] overflow-hidden shadow-2xl"
+        >
             {/* Top status bar */}
             <div className="flex items-center justify-between px-5 py-3 border-b border-white/5 text-[10px] font-mono uppercase tracking-[0.18em]">
               <div className="flex items-center gap-2 text-emerald-400">
@@ -231,7 +240,6 @@ export function GlobalExport() {
               <div className="text-white/40">ISO 9001 / ISO 17025 Certified</div>
             </div>
           </motion.div>
-        </div>
       </div>
     </section>
   );
