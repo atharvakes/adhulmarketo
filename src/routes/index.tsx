@@ -47,6 +47,7 @@ function Index() {
       <IndustrialGases />
       <WhyUs />
       <Clients />
+      <GlobalExport />
       <CtaBanner />
       <Footer />
     </main>
