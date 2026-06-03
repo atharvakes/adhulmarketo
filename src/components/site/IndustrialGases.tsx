@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { MessageCircle } from "lucide-react";
+import { whatsappEnquiryUrl } from "@/lib/whatsapp";
 
 const gases = [
   "Sulphur Hexafluoride (SF₆)",
