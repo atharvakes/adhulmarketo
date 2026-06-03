@@ -240,7 +240,6 @@ export function GlobalExport() {
               <div className="text-white/40">ISO 9001 / ISO 17025 Certified</div>
             </div>
           </motion.div>
-        </div>
       </div>
     </section>
   );
