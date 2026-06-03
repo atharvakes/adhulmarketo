@@ -8,6 +8,7 @@ import { Products } from "@/components/site/Products";
 import { IndustrialGases } from "@/components/site/IndustrialGases";
 import { WhyUs } from "@/components/site/WhyUs";
 import { Clients } from "@/components/site/Clients";
+import { GlobalExport } from "@/components/site/GlobalExport";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { Footer } from "@/components/site/Footer";
 
@@ -46,6 +47,7 @@ function Index() {
       <IndustrialGases />
       <WhyUs />
       <Clients />
+      <GlobalExport />
       <CtaBanner />
       <Footer />
     </main>

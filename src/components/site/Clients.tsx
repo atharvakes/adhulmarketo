@@ -52,25 +52,32 @@ export function Clients() {
         </div>
       </div>
 
-      <div className="mt-16 relative overflow-hidden">
+      <div className="mt-16 relative overflow-hidden cursor-grab active:cursor-grabbing">
         <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-surface to-transparent z-10" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-surface to-transparent z-10" />
 
-        <div className="flex marquee gap-16 sm:gap-24 whitespace-nowrap items-center">
+        <motion.div
+          drag="x"
+          dragConstraints={{ left: -1200, right: 0 }}
+          dragElastic={0.15}
+          whileTap={{ cursor: "grabbing" }}
+          className="flex marquee gap-16 sm:gap-24 whitespace-nowrap items-center select-none"
+        >
           {[...clients, ...clients].map((c, i) => (
             <div
               key={c.name + i}
-              className="shrink-0 flex items-center justify-center h-20 sm:h-24"
+              className="shrink-0 flex items-center justify-center h-20 sm:h-24 pointer-events-none"
             >
               <img
                 src={c.src}
                 alt={`${c.name} logo`}
                 loading="lazy"
+                draggable={false}
                 className="h-full w-auto max-w-[180px] object-contain opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-500"
               />
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
 
       <p className="mt-12 text-xs uppercase tracking-[0.22em] text-text-muted text-center">
