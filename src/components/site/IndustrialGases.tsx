@@ -41,16 +41,21 @@ export function IndustrialGases() {
 
           <div className="lg:col-span-7 flex flex-wrap gap-3">
             {gases.map((g, i) => (
-              <motion.span
+              <motion.a
                 key={g}
+                href={whatsappEnquiryUrl(g)}
+                target="_blank"
+                rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 8 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.4, delay: i * 0.05 }}
-                className="rounded-full border border-white/20 bg-white/[0.03] text-white/90 text-sm px-5 py-2.5 hover:bg-white/10 hover:border-white/40 transition-colors cursor-default"
+                className="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.03] text-white/90 text-sm px-5 py-2.5 hover:bg-emerald-500 hover:border-emerald-400 hover:text-white transition-colors"
+                aria-label={`Enquire about ${g} on WhatsApp`}
               >
                 {g}
-              </motion.span>
+                <MessageCircle className="size-3.5 opacity-60 group-hover:opacity-100" />
+              </motion.a>
             ))}
           </div>
         </div>
