@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, MessageCircle } from "lucide-react";
+import { whatsappEnquiryUrl } from "@/lib/whatsapp";
 import calibrationGas from "@/assets/products/calibration-gas.jpg";
 import gasManifold from "@/assets/products/gas-manifold.jpg";
 import highPurity from "@/assets/products/high-purity-gases.jpg";
