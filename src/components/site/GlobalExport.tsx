@@ -1,20 +1,20 @@
 import { motion } from "framer-motion";
 
-// Approximate lat/lng to SVG % positions (equirectangular projection on viewBox 1000x500)
-// x = (lng + 180) / 360 * 1000, y = (90 - lat) / 180 * 500
+// Equirectangular projection on viewBox 1000x500
 const project = (lat: number, lng: number) => ({
   x: ((lng + 180) / 360) * 1000,
   y: ((90 - lat) / 180) * 500,
 });
 
-const origin = { name: "Mumbai, India", lat: 19.076, lng: 72.8777 };
+const origin = { code: "IN", name: "Mumbai Hub", lat: 19.076, lng: 72.8777 };
 
 const destinations = [
-  { name: "Singapore", lat: 1.3521, lng: 103.8198 },
-  { name: "South Africa", lat: -29.0, lng: 24.0 },
-  { name: "Nigeria", lat: 9.082, lng: 8.6753 },
-  { name: "China", lat: 35.8617, lng: 104.1954 },
-  { name: "Bangladesh", lat: 23.685, lng: 90.3563 },
+  { code: "AE", name: "UAE", lat: 24.4667, lng: 54.3667 },
+  { code: "SG", name: "Singapore", lat: 1.3521, lng: 103.8198 },
+  { code: "ZA", name: "South Africa", lat: -29.0, lng: 24.0 },
+  { code: "NG", name: "Nigeria", lat: 9.082, lng: 8.6753 },
+  { code: "CN", name: "China", lat: 35.8617, lng: 104.1954 },
+  { code: "BD", name: "Bangladesh", lat: 23.685, lng: 90.3563 },
 ];
 
 export function GlobalExport() {
@@ -23,7 +23,7 @@ export function GlobalExport() {
   return (
     <section id="global" className="py-24 lg:py-28 bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-end">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -32,176 +32,206 @@ export function GlobalExport() {
             className="lg:col-span-5"
           >
             <span className="text-[11px] font-medium uppercase tracking-[0.25em] text-text-muted">
-              (08) Global Reach
+              (08) Global Network
             </span>
             <h2 className="mt-6 font-display text-4xl sm:text-5xl text-navy leading-[1.05]">
               Global Export
               <br />
               <em className="italic text-cobalt">Distribution.</em>
             </h2>
-            <p className="mt-6 text-text-muted text-base lg:text-lg">
+            <p className="mt-6 text-text-dark/80 text-base lg:text-lg font-medium">
               Mumbai and beyond. Delivering engineered mixtures globally.
             </p>
+            <p className="mt-5 text-text-muted text-base lg:text-base max-w-md">
+              We manufacture and load high-purity cylinder mixtures and technical
+              gas safety systems directly from our custom in-house facility in
+              Mumbai, serving world-class installations across key hubs.
+            </p>
+
+            <div className="mt-8">
+              <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-text-muted">
+                Active corridors delivered
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {destinations.map((d) => (
+                  <span
+                    key={d.name}
+                    className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full bg-surface border hairline text-navy"
+                  >
+                    <span className="text-[10px] font-mono text-text-muted">
+                      {d.code}
+                    </span>
+                    {d.name}
+                  </span>
+                ))}
+              </div>
+            </div>
           </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="lg:col-span-6 lg:col-start-7 text-text-muted text-base lg:text-lg max-w-xl"
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-7 relative rounded-2xl border border-white/5 bg-[#0a1024] overflow-hidden shadow-2xl"
           >
-            We manufacture and load high-purity cylinder mixtures and technical
-            gas safety systems directly from our custom in-house facility in
-            Mumbai, serving world-class installations across key hubs.
-          </motion.p>
-        </div>
+            {/* Top status bar */}
+            <div className="flex items-center justify-between px-5 py-3 border-b border-white/5 text-[10px] font-mono uppercase tracking-[0.18em]">
+              <div className="flex items-center gap-2 text-emerald-400">
+                <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
+                Logistics line status: Active
+              </div>
+              <div className="text-white/50">Export Center: Mumbai, IN</div>
+            </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.8 }}
-          className="mt-16 relative rounded-3xl border hairline bg-surface overflow-hidden"
-        >
-          <svg
-            viewBox="0 0 1000 500"
-            className="w-full h-auto block"
-            preserveAspectRatio="xMidYMid meet"
-          >
-            <defs>
-              <linearGradient id="routeGrad" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stopColor="hsl(var(--cobalt, 220 90% 45%))" stopOpacity="0.1" />
-                <stop offset="100%" stopColor="hsl(var(--cobalt, 220 90% 45%))" stopOpacity="0.9" />
-              </linearGradient>
-              <radialGradient id="pulse" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="#1746b8" stopOpacity="0.6" />
-                <stop offset="100%" stopColor="#1746b8" stopOpacity="0" />
-              </radialGradient>
-            </defs>
+            <svg
+              viewBox="0 0 1000 500"
+              className="w-full h-auto block"
+              preserveAspectRatio="xMidYMid meet"
+            >
+              <defs>
+                <linearGradient id="routeGradDark" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.1" />
+                  <stop offset="100%" stopColor="#60a5fa" stopOpacity="0.95" />
+                </linearGradient>
+                <radialGradient id="pulseDark" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.55" />
+                  <stop offset="100%" stopColor="#60a5fa" stopOpacity="0" />
+                </radialGradient>
+              </defs>
 
-            {/* Stylized world dot map background */}
-            <rect width="1000" height="500" fill="#f5f6f8" />
-            <g fill="#cdd3dc">
-              {Array.from({ length: 60 }).map((_, row) =>
-                Array.from({ length: 120 }).map((_, col) => {
-                  const x = col * 8.3 + 4;
-                  const y = row * 8.3 + 4;
-                  // Rough landmass mask using sine-based pseudo continents
-                  const inLand =
-                    // Africa+Europe
-                    (x > 470 && x < 600 && y > 120 && y < 380 && (x + y) % 17 < 12) ||
-                    // Asia
-                    (x > 600 && x < 820 && y > 100 && y < 320 && (x * y) % 19 < 14) ||
-                    // India subcontinent
-                    (x > 650 && x < 720 && y > 200 && y < 290) ||
-                    // SE Asia
-                    (x > 720 && x < 800 && y > 230 && y < 310 && (x + y) % 13 < 9) ||
-                    // Australia
-                    (x > 780 && x < 880 && y > 330 && y < 400) ||
-                    // N America
-                    (x > 130 && x < 320 && y > 100 && y < 280 && (x + y * 2) % 19 < 13) ||
-                    // S America
-                    (x > 270 && x < 360 && y > 280 && y < 430 && (x + y) % 15 < 10);
-                  return inLand ? (
-                    <circle key={`${row}-${col}`} cx={x} cy={y} r="1.6" />
-                  ) : null;
-                })
-              )}
-            </g>
+              {/* Dotted world map background */}
+              <g fill="#1e2a4a">
+                {Array.from({ length: 60 }).map((_, row) =>
+                  Array.from({ length: 120 }).map((_, col) => {
+                    const x = col * 8.3 + 4;
+                    const y = row * 8.3 + 4;
+                    const inLand =
+                      (x > 470 && x < 600 && y > 120 && y < 380 && (x + y) % 17 < 12) ||
+                      (x > 600 && x < 820 && y > 100 && y < 320 && (x * y) % 19 < 14) ||
+                      (x > 650 && x < 720 && y > 200 && y < 290) ||
+                      (x > 720 && x < 800 && y > 230 && y < 310 && (x + y) % 13 < 9) ||
+                      (x > 780 && x < 880 && y > 330 && y < 400) ||
+                      (x > 130 && x < 320 && y > 100 && y < 280 && (x + y * 2) % 19 < 13) ||
+                      (x > 270 && x < 360 && y > 280 && y < 430 && (x + y) % 15 < 10);
+                    return inLand ? (
+                      <circle key={`${row}-${col}`} cx={x} cy={y} r="1.6" />
+                    ) : null;
+                  })
+                )}
+              </g>
 
-            {/* Routes */}
-            {destinations.map((d, i) => {
-              const p = project(d.lat, d.lng);
-              const mx = (o.x + p.x) / 2;
-              const my = (o.y + p.y) / 2 - Math.abs(p.x - o.x) * 0.25;
-              const path = `M ${o.x} ${o.y} Q ${mx} ${my} ${p.x} ${p.y}`;
-              return (
-                <motion.path
-                  key={d.name}
-                  d={path}
-                  fill="none"
-                  stroke="url(#routeGrad)"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeDasharray="4 4"
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  whileInView={{ pathLength: 1, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1.4, delay: 0.2 + i * 0.2, ease: "easeOut" }}
-                />
-              );
-            })}
-
-            {/* Destination markers */}
-            {destinations.map((d, i) => {
-              const p = project(d.lat, d.lng);
-              return (
-                <motion.g
-                  key={d.name}
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.6 + i * 0.2 }}
-                >
-                  <circle cx={p.x} cy={p.y} r="14" fill="url(#pulse)" />
-                  <circle
-                    cx={p.x}
-                    cy={p.y}
-                    r="4.5"
-                    fill="#1746b8"
-                    stroke="#ffffff"
-                    strokeWidth="1.5"
+              {/* Routes */}
+              {destinations.map((d, i) => {
+                const p = project(d.lat, d.lng);
+                const mx = (o.x + p.x) / 2;
+                const my = (o.y + p.y) / 2 - Math.abs(p.x - o.x) * 0.25;
+                const path = `M ${o.x} ${o.y} Q ${mx} ${my} ${p.x} ${p.y}`;
+                return (
+                  <motion.path
+                    key={d.name}
+                    d={path}
+                    fill="none"
+                    stroke="url(#routeGradDark)"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeDasharray="4 4"
+                    initial={{ pathLength: 0, opacity: 0 }}
+                    whileInView={{ pathLength: 1, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1.4, delay: 0.2 + i * 0.18, ease: "easeOut" }}
                   />
-                  <text
-                    x={p.x + 9}
-                    y={p.y - 8}
-                    fontSize="11"
-                    fontWeight="600"
-                    fill="#0a1f44"
+                );
+              })}
+
+              {/* Destination markers */}
+              {destinations.map((d, i) => {
+                const p = project(d.lat, d.lng);
+                const labelLeft = p.x > 850;
+                return (
+                  <motion.g
+                    key={d.name}
+                    initial={{ opacity: 0, scale: 0 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.45, delay: 0.6 + i * 0.18 }}
                   >
-                    {d.name}
+                    <circle cx={p.x} cy={p.y} r="14" fill="url(#pulseDark)" />
+                    <circle
+                      cx={p.x}
+                      cy={p.y}
+                      r="3.2"
+                      fill="#60a5fa"
+                      stroke="#0a1024"
+                      strokeWidth="1.2"
+                    />
+                    <g transform={`translate(${labelLeft ? p.x - 90 : p.x + 10}, ${p.y + 4})`}>
+                      <rect
+                        x="0"
+                        y="-9"
+                        rx="3"
+                        ry="3"
+                        width="80"
+                        height="14"
+                        fill="#111a36"
+                        stroke="#2a3a66"
+                        strokeWidth="0.5"
+                      />
+                      <text x="6" y="1" fontSize="7" fontFamily="monospace" fill="#7a8bbf">
+                        {d.code}
+                      </text>
+                      <text x="20" y="1.5" fontSize="8.5" fontWeight="600" fill="#e6ecff">
+                        {d.name}
+                      </text>
+                    </g>
+                  </motion.g>
+                );
+              })}
+
+              {/* Origin: Mumbai */}
+              <g>
+                <motion.circle
+                  cx={o.x}
+                  cy={o.y}
+                  r="22"
+                  fill="url(#pulseDark)"
+                  initial={{ scale: 0.6, opacity: 0.4 }}
+                  animate={{ scale: [0.6, 1.5, 0.6], opacity: [0.4, 0, 0.4] }}
+                  transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+                  style={{ transformOrigin: `${o.x}px ${o.y}px` }}
+                />
+                <circle cx={o.x} cy={o.y} r="5" fill="#ffffff" stroke="#60a5fa" strokeWidth="1.5" />
+                <g transform={`translate(${o.x + 10}, ${o.y + 4})`}>
+                  <rect
+                    x="0"
+                    y="-9"
+                    rx="3"
+                    ry="3"
+                    width="92"
+                    height="14"
+                    fill="#1746b8"
+                    stroke="#60a5fa"
+                    strokeWidth="0.6"
+                  />
+                  <text x="6" y="1" fontSize="7" fontFamily="monospace" fill="#cfe0ff">
+                    IN
                   </text>
-                </motion.g>
-              );
-            })}
+                  <text x="20" y="1.5" fontSize="8.5" fontWeight="700" fill="#ffffff">
+                    {origin.name}
+                  </text>
+                </g>
+              </g>
+            </svg>
 
-            {/* Origin: Mumbai */}
-            <g>
-              <motion.circle
-                cx={o.x}
-                cy={o.y}
-                r="20"
-                fill="url(#pulse)"
-                initial={{ scale: 0.6, opacity: 0.4 }}
-                animate={{ scale: [0.6, 1.4, 0.6], opacity: [0.4, 0, 0.4] }}
-                transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-                style={{ transformOrigin: `${o.x}px ${o.y}px` }}
-              />
-              <circle cx={o.x} cy={o.y} r="6" fill="#0a1f44" stroke="#ffffff" strokeWidth="2" />
-              <text
-                x={o.x + 10}
-                y={o.y + 16}
-                fontSize="12"
-                fontWeight="700"
-                fill="#0a1f44"
-              >
-                Mumbai · HQ
-              </text>
-            </g>
-          </svg>
-
-          <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2">
-            {destinations.map((d) => (
-              <span
-                key={d.name}
-                className="text-[11px] font-medium uppercase tracking-[0.18em] px-3 py-1.5 rounded-full bg-white/80 backdrop-blur border hairline text-navy"
-              >
-                {d.name}
-              </span>
-            ))}
-          </div>
-        </motion.div>
+            {/* Bottom status bar */}
+            <div className="flex items-center justify-between px-5 py-3 border-t border-white/5 text-[10px] font-mono uppercase tracking-[0.18em]">
+              <div className="text-white/60">
+                Active export link in all {destinations.length} corridors
+              </div>
+              <div className="text-white/40">ISO 9001 / ISO 17025 Certified</div>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
